@@ -1,0 +1,75 @@
+CREATE DATABASE EstilosMusicais;
+
+USE EstilosMusicais;
+
+CREATE TABLE EstiloMusical(
+	IdEstilo INT PRIMARY KEY IDENTITY,
+	NomeEstilo VARCHAR(30) NOT NULL
+);
+CREATE TABLE Artista(
+	IdArtista INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(100) NOT NULL,
+	IdEstilo INT FOREIGN KEY REFERENCES EstiloMusical(IdEstilo)
+);
+SELECT * FROM Artista;
+SELECT * FROM EstiloMusical;
+ 
+    DROP TABLE EstiloMusical;
+	DROP TABLE Artista;
+
+	USE Albuns;
+
+	DROP DATABASE EstilosMusicais;
+
+
+
+
+
+CREATE DATABASE Albuns;
+
+USE Albuns;
+
+CREATE TABLE Estilo(
+	IdEstilo INT PRIMARY KEY IDENTITY,
+	NomeEstilo VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Artista(
+	IdArtista INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(100) NOT NULL,
+	IdEstilo INT FOREIGN KEY REFERENCES Estilo(IdEstilo)
+);
+
+CREATE TABLE Album(
+	IdAlbum INT PRIMARY KEY IDENTITY,
+	NomeAlbum VARCHAR(100) NOT NULL,
+	IdEstilo INT FOREIGN KEY REFERENCES Estilo(IdEstilo),
+	IdArtista INT FOREIGN KEY REFERENCES Artista(IdArtista)
+);
+
+
+CREATE TABLE Usuario(
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(100) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
+	Senha VARCHAR(20 )
+);
+
+ALTER TABLE Album
+ADD DataLancamento DATE;
+
+SELECT * FROM Artista;
+SELECT * FROM Estilo;
+SELECT * FROM Album;
+SELECT * FROM Usuario;
+
+
+DROP TABLE Estilo;
+DROP TABLE Artista;
+DROP TABLE Album;
+DROP TABLE Usuario;
+
+USE DbScribd;
+
+DROP DATABASE Albuns;
+
