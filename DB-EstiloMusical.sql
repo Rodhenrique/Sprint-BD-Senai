@@ -1,30 +1,3 @@
-CREATE DATABASE EstilosMusicais;
-
-USE EstilosMusicais;
-
-CREATE TABLE EstiloMusical(
-	IdEstilo INT PRIMARY KEY IDENTITY,
-	NomeEstilo VARCHAR(30) NOT NULL
-);
-CREATE TABLE Artista(
-	IdArtista INT PRIMARY KEY IDENTITY,
-	Nome VARCHAR(100) NOT NULL,
-	IdEstilo INT FOREIGN KEY REFERENCES EstiloMusical(IdEstilo)
-);
-SELECT * FROM Artista;
-SELECT * FROM EstiloMusical;
- 
-    DROP TABLE EstiloMusical;
-	DROP TABLE Artista;
-
-	USE Albuns;
-
-	DROP DATABASE EstilosMusicais;
-
-
-
-
-
 CREATE DATABASE Optus_Albuns_Tarde;
 
 USE Optus_Albuns_Tarde;
@@ -162,4 +135,5 @@ Where IdAlbum = 13;
 
 DELETE FROM Album
 WHERE IdAlbum = 10;
+
 

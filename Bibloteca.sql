@@ -90,71 +90,40 @@ VALUES
 	DELETE FROM Autores
 	WHERE IdAutor IN (1,2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
---DML LINGUAGEM DE MANIPULAÇÃO DE DADOS 
-
-USE DbOptus;
-
-SELECT * FROM TblAlbum;
-SELECT * FROM TblArtista;
-SELECT * FROM TblEstilo;
-SELECT * FROM TblUsuario;
-SELECT * FROM TblTipoUsuario;
-
---COMANDO DE INSERIR DADOS
-
-INSERT INTO TblEstilo(Nome)
-VALUES('Pagode'),('Samba'),('Rock');
-
-INSERT INTO TblArtista(NomeArtista)
-VALUES('Pearl jam'),('Iron Man'),('Marcos');
-
-
-INSERT INTO TblAlbum(Nome,DataLancamento,QtdMinutos,Visualiacao,FKIdArtista,FKIdEstilo)
-VALUES ('sol,água e praia','29/01/2020',123,'100000',6,8);
-
---Update Alterar dados
-
-UPDATE TblArtista
-SET NomeArtista = 'Marcos'
-Where IdArtista = 5;
-
---DELETE APAGAR DADOS
-
-DELETE FROM TblArtista
-WHERE IdArtista = 5;
-
---LIMPA TODOS OS DADOS DA TABELA
-
-TRUNCATE TABLE TblAlbum;
-TRUNCATE TABLE TblEstilo;
-TRUNCATE TABLE TblArtista;
-TRUNCATE TABLE TblUsuario;
-TRUNCATE TABLE TblTipoUsuario;
-
---DELETAR MAIS DE UMA LINHA 
-	DELETE FROM Autores
-	WHERE IdAutor IN (1,2);
-
 	--ALTERAR MAIS DE UMA LINHA
 	UPDATE Genero
 	SET NomeAutor = 'Oscar Wilde'
 	Where IdArtista IN 5,3;
 
+--SELECIONA TODOS OS AUTORES
+
+SELECT NomeAutor,IdAutor From Autores;
+
+--SELECIONA TODOS OS generos
+
+SELECT Nome,IdGenero From Generos;
+
+--SELECIONA TODOS OS livros
+
+SELECT Titulo,IdLivro From Livros;
+
+--SELECIONA TODOS OS LIVROS E SEUS AUTORES
+
+SELECT Titulo,IdLivro,IdAutor From Livros;
+
+--SELECIONA TODOS OS LIVROS E SEUS GENEROS
+
+SELECT Titulo,IdGenero From Livros;
+
+--SELECIONA TODOS OS LIVROS E SEUS GENEROS E O AUTOR
+
+SELECT Titulo,IdGenero,IdAutor From Livros;
 
 
+SELECT NomeAutor, Titulo
+FROM Autores as A
+INNER JOIN Livros as B
+ on NomeAutor = Titulo;
 
 
 
